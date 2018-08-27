@@ -7,7 +7,7 @@ LABEL io.k8s.description="Platform for running Pinpoint Application Performance 
       io.openshift.tags="pinpoint-apm"
 
 ENV JAVA_6_HOME /usr/java/jdk1.6.0_45
-ENV JAVA_7_HOME /usr/java/jdk1.7.0_80-amd64
+ENV JAVA_7_HOME /usr/java/jdk1.7.0_80
 ENV JAVA_8_HOME /usr/java/jdk1.8.0_181-amd64
 ENV JAVA_HOME /usr/java/jdk1.8.0_181-amd64
 
@@ -34,6 +34,7 @@ RUN chmod +x /root/howto-startup.sh /root/pinpoint-start.sh && \
 RUN git clone https://github.com/wallaby16/pinpoint-maken.git /pinpoint && \
     mkdir /pinpoint/logs
 WORKDIR /pinpoint
+RUN git checkout tags/1.6.0
 RUN mvn install -Dmaven.test.skip=true -B
 
 
