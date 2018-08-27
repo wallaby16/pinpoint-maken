@@ -23,7 +23,7 @@ RUN cd /usr/local/src/ && \
     rpm -i jdk-7u80-linux-x64.rpm --force && \
     rpm -i jdk-8u181-linux-x64.rpm --force && \
     yum clean all && \
-    rm -rf jdk-6u45-linux-amd64.rpm jdk-8u181-linux-x64.rpm epel-release-7-8.noarch.rpm
+    rm -rf jdk-6u45-linux-amd64.rpm jdk-8u181-linux-x64.rpm jdk-7u80-linux-x64.rpm epel-release-7-8.noarch.rpm
 
 COPY src/howto-startup.sh /root/
 COPY src/pinpoint-start.sh /root/
@@ -31,7 +31,7 @@ COPY src/pinpoint-start.sh /root/
 RUN chmod +x /root/howto-startup.sh /root/pinpoint-start.sh && \
     echo "/root/howto-startup.sh" >> /etc/bashrc
 
-RUN git clone https://github.com/naver/pinpoint.git /pinpoint && \
+RUN git clone https://github.com/wallaby16/pinpoint-maken.git /pinpoint && \
     mkdir /pinpoint/logs
 WORKDIR /pinpoint
 RUN git checkout tags/1.6.0
