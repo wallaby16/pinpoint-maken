@@ -31,7 +31,7 @@ COPY src/pinpoint-start.sh /root/
 RUN chmod +x /root/howto-startup.sh /root/pinpoint-start.sh && \
     echo "/root/howto-startup.sh" >> /etc/bashrc
 
-RUN git clone https://github.com/wallaby16/pinpoint-maken.git /pinpoint && \
+RUN git clone https://github.com/naver/pinpoint.git /pinpoint && \
     mkdir /pinpoint/logs
 WORKDIR /pinpoint
 RUN git checkout tags/1.6.0
